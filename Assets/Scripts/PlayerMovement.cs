@@ -107,11 +107,7 @@ public class PlayerMovement : MonoBehaviour
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Water1")))
         {
             Vector2 playerVelocity = new Vector2(moveInput.x * swimSpeed, moveInput.y * swimSpeed);
-            myRigidbody.velocity = playerVelocity;
-           
-           
-            
-            
+            myRigidbody.velocity = playerVelocity;   
         }
     }
 
