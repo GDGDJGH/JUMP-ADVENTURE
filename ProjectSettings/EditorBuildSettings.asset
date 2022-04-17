@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Levels/MainMenu.unity
+    guid: 4b9032a6b18c0e540aba802b6653df8e
+  - enabled: 1
+    path: Assets/Levels/Controll.unity
+    guid: a0363186a24e45b409537096a7161f0a
+  - enabled: 1
+    path: "Assets/Levels/Kontroln\xED bod.unity"
+    guid: 7291f06785c557b4bae0e1de9a5ab074
+  - enabled: 1
     path: Assets/Levels/Level 1.unity
     guid: 2ef369e80df6fe342b022cbfbc158020
   - enabled: 1

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] float swimSpeed = 2.5f;
     [SerializeField] Vector2 deathKick = new Vector2 (10f, 10f);
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
         ClimbLadder();
         Die();
+        Swim();
     }
 
     void OnFire(InputValue value)
@@ -98,6 +100,19 @@ public class PlayerMovement : MonoBehaviour
 
         bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
+        Debug.Log("a");
+    }
+    void Swim()
+    {
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Water1")))
+        {
+            Vector2 playerVelocity = new Vector2(moveInput.x * swimSpeed, moveInput.y * swimSpeed);
+            myRigidbody.velocity = playerVelocity;
+           
+           
+            
+            
+        }
     }
 
     void Die()
