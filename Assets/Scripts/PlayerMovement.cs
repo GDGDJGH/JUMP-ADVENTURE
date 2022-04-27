@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
     
+    
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     float gravityScaleAtStart;
 
     bool isAlive = true;
+    bool hasBow = false;
 
     void Start()
     {
@@ -41,9 +43,12 @@ public class PlayerMovement : MonoBehaviour
         Swim();
     }
 
+    public void SetHasBow(bool hasBow) {
+        this.hasBow = hasBow;
+    }
     void OnFire(InputValue value)
     {
-        if (!isAlive) { return; }
+        if (!isAlive || hasBow == false) { return; }
         Instantiate(bullet, gun.position, transform.rotation);
     }
     
