@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
     
-    
+    Bullet arrow;
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = myRigidbody.gravityScale;
+        arrow = FindObjectOfType<Bullet>();
+
     }
 
     void Update()
@@ -49,7 +51,16 @@ public class PlayerMovement : MonoBehaviour
     void OnFire(InputValue value)
     {
         if (!isAlive || hasBow == false) { return; }
+        float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
+        
+        
+        
         Instantiate(bullet, gun.position, transform.rotation);
+        if(playerRotation == -1)
+        {
+            arrow.flipArrow();
+        }
+        
     }
     
     void OnMove(InputValue value)
