@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool isAlive = true;
     bool hasBow = false;
+    bool isLookingRight = true;
 
     void Start()
     {
@@ -52,15 +53,23 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive || hasBow == false) { return; }
         float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
-        
-        
-        
         Instantiate(bullet, gun.position, transform.rotation);
-        if(playerRotation == -1)
+        /*if(playerRotation == -1)
         {
             arrow.flipArrow();
+        }   
+        */
+    }
+    public bool GetPlayerRotation(){
+        if(transform.localScale.x == -1)
+        {
+            isLookingRight = false;
         }
-        
+        else
+        {
+            isLookingRight = true;
+        }
+        return isLookingRight;
     }
     
     void OnMove(InputValue value)
@@ -98,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2 (Mathf.Sign(myRigidbody.velocity.x), 1f);
+            
         }
     }
 

@@ -16,20 +16,14 @@ public class Bullet : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerMovement>();
         xSpeed = player.transform.localScale.x * bulletSpeed;
-        ArrowRotation = GetComponent<SpriteRenderer>();
-        
-        
-        
+        ArrowRotation = GetComponent<SpriteRenderer>();      
     }
 
     void Update()
     {
        
         myRigidbody.velocity = new Vector2 (xSpeed, 0f);
-        if(Input.GetKeyDown(KeyCode.A)){
-            ArrowRotation.flipX = true;
-        }
-        if(Input.GetKeyDown(KeyCode.D)){
+        if(!player.GetPlayerRotation()){
             ArrowRotation.flipX = true;
         }
     }
