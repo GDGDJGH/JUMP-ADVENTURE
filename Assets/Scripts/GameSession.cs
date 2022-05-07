@@ -39,13 +39,10 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(3);
-            
+            SceneManager.LoadScene(3);           
             ResetGameSession();
         }
     }
-
-    
 
     void TakeLife()
     {
@@ -58,7 +55,6 @@ public class GameSession : MonoBehaviour
     public void ResetGameSession()
     {
         FindObjectOfType<ScenePersist>().ResetScenePersist();
-        Destroy(gameObject);
-        
+        Destroy(gameObject);    
     }
 }
