@@ -54,11 +54,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isAlive || hasBow == false) { return; }
         float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
         Instantiate(bullet, gun.position, transform.rotation);
-        /*if(playerRotation == -1)
-        {
-            arrow.flipArrow();
-        }   
-        */
+        
     }
     public bool GetPlayerRotation(){
         if(transform.localScale.x == -1)
@@ -85,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         
         if(value.isPressed)
         {
-            // do stuff
+            
             myRigidbody.velocity += new Vector2 (0f, jumpSpeed);
         }
     }
@@ -126,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
         bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
-        Debug.Log("a");
+        
     }
     void Swim()
     {

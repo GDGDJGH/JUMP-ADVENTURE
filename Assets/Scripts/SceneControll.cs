@@ -9,12 +9,15 @@ public class SceneControll : MonoBehaviour
 
     public void LoadFirstLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
+        
     }
 
     public void LoadMainMenu()
     {
+        FindObjectOfType<CoinPickUpManager>().resetScore();
         SceneManager.LoadScene(0);
+        
     }
 
     public void LoadControll()
@@ -24,5 +27,12 @@ public class SceneControll : MonoBehaviour
 
     public void QuitGame() {
         Application.Quit();
+    }
+
+    public void PlayAgain() {
+        FindObjectOfType<CoinPickUpManager>().resetScore();
+        SceneManager.LoadScene(4);
+
+
     }
 }
