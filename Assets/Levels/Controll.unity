@@ -6051,7 +6051,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 182715270}
         m_TargetAssemblyTypeName: SceneControll, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+        m_MethodName: LoadMainMenu2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

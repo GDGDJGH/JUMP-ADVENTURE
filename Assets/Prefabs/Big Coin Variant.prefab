@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8646416891102632375, guid: 29cf7c4aab48b704aab0064e05495a46, type: 3}
       propertyPath: pointsForCoinPickup
-      value: 300
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29cf7c4aab48b704aab0064e05495a46, type: 3}

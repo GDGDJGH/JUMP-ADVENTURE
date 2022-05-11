@@ -20,6 +20,10 @@ public class SceneControll : MonoBehaviour
         
     }
 
+    public void LoadMainMenu2() {
+        SceneManager.LoadScene(0);
+    }
+
     public void LoadControll()
     {
         SceneManager.LoadScene(1);
