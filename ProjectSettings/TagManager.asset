@@ -22,9 +22,9 @@ TagManager:
   - Bullets
   - Interactables
   - Water1
-  - 
-  - 
-  - 
+  - FallingHazards
+  - Lava
+  - Elixir
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
   - name: Water
     uniqueID: 1918633245
     locked: 0
+  - name: Lava
+    uniqueID: 1559671365
+    locked: 0
   - name: Platforms
     uniqueID: 3220360055
     locked: 0
@@ -65,4 +68,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3411891735
+    locked: 0
+  - name: Key
+    uniqueID: 2146103839
     locked: 0

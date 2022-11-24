@@ -23,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
     bool isAlive = true;
     bool hasBow = false;
+    bool hasKey = false;
     bool isLookingRight = true;
+    bool hasElixir = false;
 
     void Start()
     {
@@ -44,10 +46,30 @@ public class PlayerMovement : MonoBehaviour
         ClimbLadder();
         Die();
         Swim();
+        TouchingLava();
     }
 
     public void SetHasBow(bool hasBow) {
         this.hasBow = hasBow;
+    }
+
+    public void SetHasKey(bool hasKey)
+    {
+        this.hasKey = hasKey;
+    }
+
+    public bool GetHasKey() {
+        return this.hasKey;
+    }
+
+    public void SetHasElixir(bool hasElixir)
+    {
+        this.hasElixir = hasElixir;
+    }
+
+    public bool GetHasElixir()
+    {
+        return this.hasElixir;
     }
     void OnFire(InputValue value)
     {
@@ -141,6 +163,27 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
+        }
+    }
+
+    public void OtherDie() {
+        isAlive = false;
+        myAnimator.SetTrigger("Dying");
+        myRigidbody.velocity = deathKick;
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
+    }
+
+    void TouchingLava() {
+        if (hasElixir == true) {
+            if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Lava")))
+            {
+                Vector2 playerVelocity = new Vector2(moveInput.x * swimSpeed, moveInput.y * swimSpeed);
+                myRigidbody.velocity = playerVelocity;
+            }
+            return;
+        }
+        else if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Lava"))){
+            OtherDie();
         }
     }
 

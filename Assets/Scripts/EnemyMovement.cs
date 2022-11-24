@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         myRigidbody.velocity = new Vector2 (moveSpeed, 0f);
+        
     }
 
     void OnTriggerExit2D(Collider2D other) 

@@ -23,9 +23,7 @@ public class Bullet : MonoBehaviour
     {
        
         myRigidbody.velocity = new Vector2 (xSpeed, 0f);
-        if(!player.GetPlayerRotation()){
-            ArrowRotation.flipX = true;
-        }
+        flipArrow();
     }
 
     void OnTriggerEnter2D(Collider2D other) 
@@ -43,6 +41,11 @@ public class Bullet : MonoBehaviour
     }
 
     public void flipArrow(){
-        ArrowRotation.flipX = true;
+        if (!player.GetPlayerRotation())
+        {
+            ArrowRotation.flipX = true;
+        }
     }
+
+    
 }

@@ -6,13 +6,45 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
     [SerializeField] float levelLoadDelay = 0.5f;
-    
-    void OnTriggerEnter2D(Collider2D other) 
-    {        
-        if (other.tag == "Player")
-        {
-            StartCoroutine(LoadNextLevel());
+    [SerializeField] GameObject Key;
+    [SerializeField] Color32 keyIsExist = new Color32(1, 1, 1, 1);
+    [SerializeField] Color32 keyIsNotExist = new Color32(1, 1, 1, 1);
+    SpriteRenderer spriteRenderer;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (Key) {
+            spriteRenderer.color = keyIsExist;
         }
+    }
+
+    private void Update()
+    {
+        if (FindObjectOfType<PlayerMovement>().GetHasKey()) {
+            spriteRenderer.color = keyIsNotExist;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (Key)
+        {            
+            if (FindObjectOfType<PlayerMovement>().GetHasKey())
+            {
+                if (other.tag == "Player")
+                {
+                    StartCoroutine(LoadNextLevel());
+                }
+            }
+        }
+        else
+        {
+            if (other.tag == "Player")
+            {
+                StartCoroutine(LoadNextLevel());
+            }
+        }  
+        
     }
 
     IEnumerator LoadNextLevel()
