@@ -12,17 +12,10 @@ public class ScoreManager : ScriptableObject
 
     [SerializeField] int score = 0;
 
-    //[SerializeField] TextMeshProUGUI scoreText;
-
-    void Start()
-    {
-        
-    }
-
     public void AddToScore(int pointsToAdd)
     {
         score += pointsToAdd;
-       //scoreText.text = score.ToString();
+      
     }
 
     public int GetScore() {

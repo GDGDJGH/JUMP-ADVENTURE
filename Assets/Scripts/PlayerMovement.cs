@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float runSpeed = 10f;
@@ -12,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Vector2 deathKick = new Vector2 (10f, 10f);
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
-    
+    [SerializeField] ArrowsPickUpManager arrowManager;
+
     Bullet arrow;
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -47,10 +49,12 @@ public class PlayerMovement : MonoBehaviour
         Die();
         Swim();
         TouchingLava();
+        
     }
 
     public void SetHasBow(bool hasBow) {
         this.hasBow = hasBow;
+        
     }
 
     public void SetHasKey(bool hasKey)
@@ -73,9 +77,15 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnFire(InputValue value)
     {
-        if (!isAlive || hasBow == false) { return; }
-        float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
-        Instantiate(bullet, gun.position, transform.rotation);
+        
+        if (!isAlive || hasBow == false || FindObjectOfType<ArrowsPickUpManager>().GetArrows() <= 0) { return; }
+
+            FindObjectOfType<ArrowsPickUpManager>().updateArrows();
+            float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
+            Instantiate(bullet, gun.position, transform.rotation);
+        
+        
+
         
     }
     public bool GetPlayerRotation(){
@@ -155,19 +165,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
         {
             isAlive = false;
+            FindObjectOfType<ArrowsPickUpManager>().resetArrows();
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
+
         }
     }
 
     public void OtherDie() {
         isAlive = false;
+        FindObjectOfType<ArrowsPickUpManager>().resetArrows();
         myAnimator.SetTrigger("Dying");
         myRigidbody.velocity = deathKick;
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
@@ -185,6 +198,10 @@ public class PlayerMovement : MonoBehaviour
         else if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Lava"))){
             OtherDie();
         }
+    }
+
+    public bool GetAlive() {
+        return isAlive;
     }
 
 }
