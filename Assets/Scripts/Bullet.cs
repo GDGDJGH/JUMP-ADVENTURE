@@ -28,16 +28,24 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.tag == "Enemy" )
+        if (other.tag == "Target")
+        {
+            Destroy(other.gameObject);
+        }
+
+        Destroy(gameObject);
+        if (other.tag == "Enemy" )
         {
             Destroy(other.gameObject);
         }
         Destroy(gameObject);
+
+        
+       
     }
 
     void OnCollisionEnter2D(Collision2D other) 
     {
-        
         Destroy(gameObject);    
     }
     

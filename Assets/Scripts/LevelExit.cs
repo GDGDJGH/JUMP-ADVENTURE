@@ -10,24 +10,26 @@ public class LevelExit : MonoBehaviour
     [SerializeField] Color32 keyIsExist = new Color32(1, 1, 1, 1);
     [SerializeField] Color32 keyIsNotExist = new Color32(1, 1, 1, 1);
     SpriteRenderer spriteRenderer;
+    [SerializeField] GameObject Target;
+    
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (Key) {
+        if (Key || Target) {
             spriteRenderer.color = keyIsExist;
         }
     }
 
     private void Update()
     {
-        if (FindObjectOfType<PlayerMovement>().GetHasKey()) {
+        if (FindObjectOfType<PlayerMovement>().GetHasKey() ) {
             spriteRenderer.color = keyIsNotExist;
         }
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (Key)
+        if (Key || Target)
         {            
             if (FindObjectOfType<PlayerMovement>().GetHasKey())
             {

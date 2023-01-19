@@ -204,4 +204,8 @@ public class PlayerMovement : MonoBehaviour
         return isAlive;
     }
 
+    public void SetSpeed(float speed) {
+        this.runSpeed = speed;
+    }
+
 }

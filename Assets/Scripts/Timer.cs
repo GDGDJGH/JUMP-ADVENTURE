@@ -37,8 +37,10 @@ public class Timer : MonoBehaviour
 
         }
         timerText.text = timerValue.ToString("0");
+    }
 
-
-
+    public void SetTimer(float time) {
+        this.timerValue += time;
+        timerText.text = timerValue.ToString("0");
     }
 }

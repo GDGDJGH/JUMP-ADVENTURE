@@ -57,4 +57,9 @@ public class GameSession : MonoBehaviour
         FindObjectOfType<ScenePersist>().ResetScenePersist();
         Destroy(gameObject);    
     }
+
+    public void AddLife() {
+        playerLives++;
+        livesText.text = playerLives.ToString();
+    }
 }

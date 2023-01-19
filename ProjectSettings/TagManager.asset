@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - FallingHazards
   - Lava
   - Elixir
-  - 
+  - Target
   - 
   - 
   - 
