@@ -23,7 +23,7 @@ public class LevelExit : MonoBehaviour
 
     private void Update()
     {
-        if (FindObjectOfType<PlayerMovement>().GetHasKey() ) {
+        if (FindObjectOfType<PlayerMovement>().GetHasKey() || FindObjectOfType<PlayerMovement>().GetHasTarget()) {
             spriteRenderer.color = keyIsNotExist;
         }
     }

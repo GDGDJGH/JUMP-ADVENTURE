@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5623959111220081405}
   - component: {fileID: 2631773049785510294}
   m_Layer: 8
-  m_Name: Ginger (Player)
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

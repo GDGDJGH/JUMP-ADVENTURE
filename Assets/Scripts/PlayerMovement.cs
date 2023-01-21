@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     bool isAlive = true;
     bool hasBow = false;
     bool hasKey = false;
+    bool hasTarget = false;
     bool isLookingRight = true;
     bool hasElixir = false;
 
@@ -60,6 +61,16 @@ public class PlayerMovement : MonoBehaviour
     public void SetHasKey(bool hasKey)
     {
         this.hasKey = hasKey;
+    }
+
+    public void SetHasTarget(bool hasTarget)
+    {
+        this.hasTarget = hasTarget;
+    }
+
+    public bool GetHasTarget()
+    {
+        return this.hasTarget;
     }
 
     public bool GetHasKey() {

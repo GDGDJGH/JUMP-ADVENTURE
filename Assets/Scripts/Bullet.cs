@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     public SpriteRenderer ArrowRotation;
     
     
+
+
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -30,6 +32,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.tag == "Target")
         {
+            FindObjectOfType<PlayerMovement>().SetHasTarget(true);
             Destroy(other.gameObject);
         }
 
@@ -57,5 +60,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    
+   
+
+
 }
