@@ -90,7 +90,8 @@ public class PlayerMovement : MonoBehaviour
     {
         
         if (!isAlive || hasBow == false || FindObjectOfType<ArrowsPickUpManager>().GetArrows() <= 0) { return; }
-        if (FindObjectOfType<PauseMenu>().GetIsPaused()) { return; }
+        if(FindObjectOfType<PauseMenu>().GetIsPaused() == true) { return; }
+       
             FindObjectOfType<ArrowsPickUpManager>().updateArrows();
             float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
             Instantiate(bullet, gun.position, transform.rotation);

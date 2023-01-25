@@ -18,7 +18,7 @@ public class BowPickup : MonoBehaviour
     private void Update()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentSceneIndex >= 6) {
+        if (currentSceneIndex >= 7) {
             FindObjectOfType<PlayerMovement>().SetHasBow(true);
         }
     }

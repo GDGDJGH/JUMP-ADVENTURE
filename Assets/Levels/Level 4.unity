@@ -14400,17 +14400,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb656459d1c9db24a8c2f86dce893e18, type: 3}
---- !u!114 &595007192 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4486664730489862190, guid: eb656459d1c9db24a8c2f86dce893e18, type: 3}
-  m_PrefabInstance: {fileID: 595007191}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &623698722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44725,13 +44714,24 @@ PrefabInstance:
     - target: {fileID: 2620198509266651531, guid: b1d35aa0f4451434caf962e2fea65e6c, type: 3}
       propertyPath: livesText
       value: 
-      objectReference: {fileID: 595007192}
+      objectReference: {fileID: 4900748154434268626}
     - target: {fileID: 7591460816204479613, guid: b1d35aa0f4451434caf962e2fea65e6c, type: 3}
       propertyPath: m_Name
       value: Game Session
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1d35aa0f4451434caf962e2fea65e6c, type: 3}
+--- !u!114 &4900748154434268626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7935297666368219121, guid: b1d35aa0f4451434caf962e2fea65e6c, type: 3}
+  m_PrefabInstance: {fileID: 4900748154434268625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6777699763021344301
 PrefabInstance:
   m_ObjectHideFlags: 0
