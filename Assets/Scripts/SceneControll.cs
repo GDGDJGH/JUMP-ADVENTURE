@@ -39,7 +39,9 @@ public class SceneControll : MonoBehaviour
         FindObjectOfType<CoinPickUpManager>().resetScore();
         FindObjectOfType<ArrowsPickUpManager>().resetArrows();
         SceneManager.LoadScene(5);
+    }
 
-
+    public void Levels() {
+        SceneManager.LoadScene(4);
     }
 }

@@ -89,8 +89,8 @@ public class PlayerMovement : MonoBehaviour
     void OnFire(InputValue value)
     {
         
-        if (!isAlive || hasBow == false || FindObjectOfType<ArrowsPickUpManager>().GetArrows() <= 0) { return; }
-        if(FindObjectOfType<PauseMenu>().GetIsPaused() == true) { return; }
+        if (!isAlive || hasBow == false || FindObjectOfType<ArrowsPickUpManager>().GetArrows() <= 0 || FindObjectOfType<PauseMenu>().GetIsPaused() == true) { return; }
+        
        
             FindObjectOfType<ArrowsPickUpManager>().updateArrows();
             float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
