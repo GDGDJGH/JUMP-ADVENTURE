@@ -87,18 +87,11 @@ public class PlayerMovement : MonoBehaviour
         return this.hasElixir;
     }
     void OnFire(InputValue value)
-    {
-        
+    {        
         if (!isAlive || hasBow == false || FindObjectOfType<ArrowsPickUpManager>().GetArrows() <= 0 || FindObjectOfType<PauseMenu>().GetIsPaused() == true) { return; }
-        
-       
             FindObjectOfType<ArrowsPickUpManager>().updateArrows();
             float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
-            Instantiate(bullet, gun.position, transform.rotation);
-        
-        
-
-        
+            Instantiate(bullet, gun.position, transform.rotation);   
     }
     public bool GetPlayerRotation(){
         if(transform.localScale.x == -1)
@@ -124,8 +117,7 @@ public class PlayerMovement : MonoBehaviour
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return;}
         
         if(value.isPressed)
-        {
-            
+        {            
             myRigidbody.velocity += new Vector2 (0f, jumpSpeed);
         }
     }
@@ -134,20 +126,16 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 playerVelocity = new Vector2 (moveInput.x * runSpeed, myRigidbody.velocity.y);
         myRigidbody.velocity = playerVelocity;
-
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
-
     }
 
     void FlipSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
-
         if (playerHasHorizontalSpeed)
         {
-            transform.localScale = new Vector2 (Mathf.Sign(myRigidbody.velocity.x), 1f);
-            
+            transform.localScale = new Vector2 (Mathf.Sign(myRigidbody.velocity.x), 1f);           
         }
     }
 
@@ -186,7 +174,6 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
-
         }
     }
 

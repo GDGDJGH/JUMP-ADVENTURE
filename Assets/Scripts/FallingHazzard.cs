@@ -35,7 +35,6 @@ public class FallingHazzard : MonoBehaviour
 
     private void OnTriggerWithPlayer() {
         if (myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Player"))){
-            Debug.Log("Spadl osten");
             FindObjectOfType<PlayerMovement>().OtherDie();
         }
     }

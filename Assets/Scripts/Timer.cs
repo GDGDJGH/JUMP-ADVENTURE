@@ -23,7 +23,6 @@ public class Timer : MonoBehaviour
             if (timerValue <= 0)
             {
                 isCounting = false;
-                Debug.Log("Jsi mrtvý píèo");
                 FindObjectOfType<PlayerMovement>().OtherDie();
             }
         }
@@ -31,10 +30,8 @@ public class Timer : MonoBehaviour
             if (timerValue <= 0)
             {
                 isCounting = true;
-                timerValue = timeLimit;
-                
+                timerValue = timeLimit;                
             }
-
         }
         timerText.text = timerValue.ToString("0");
     }
