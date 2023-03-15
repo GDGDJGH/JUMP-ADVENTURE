@@ -9625,7 +9625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7068861416026636606, guid: 91821717562ba3644b3d94a21dfc3165, type: 3}
       propertyPath: timeLimit
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7068861416026636607, guid: 91821717562ba3644b3d94a21dfc3165, type: 3}
       propertyPath: m_RootOrder
