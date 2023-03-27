@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float swimSpeed = 2.5f;
     [SerializeField] Vector2 deathKick = new Vector2 (10f, 10f);
     [SerializeField] GameObject bullet;
-    [SerializeField] Transform gun;
+    [SerializeField] Transform bow;
     [SerializeField] ArrowsPickUpManager arrowManager;
 
     Bullet arrow;
@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isAlive || hasBow == false || FindObjectOfType<ArrowsPickUpManager>().GetArrows() <= 0 || FindObjectOfType<PauseMenu>().GetIsPaused() == true) { return; }
             FindObjectOfType<ArrowsPickUpManager>().updateArrows();
             float playerRotation = Mathf.Sign(myRigidbody.velocity.x);
-            Instantiate(bullet, gun.position, transform.rotation);   
+            Instantiate(bullet, bow.position, transform.rotation);   
     }
     public bool GetPlayerRotation(){
         if(transform.localScale.x == -1)

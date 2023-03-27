@@ -47,9 +47,6 @@ TagManager:
   - name: Background
     uniqueID: 2654948761
     locked: 0
-  - name: Lava
-    uniqueID: 1559671365
-    locked: 0
   - name: Platforms
     uniqueID: 3220360055
     locked: 0
@@ -70,6 +67,9 @@ TagManager:
     locked: 0
   - name: Water
     uniqueID: 1918633245
+    locked: 0
+  - name: Lava
+    uniqueID: 1559671365
     locked: 0
   - name: Key
     uniqueID: 2146103839
