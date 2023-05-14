@@ -5,7 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneControll : MonoBehaviour
 {
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadMainMenu2();
+        }
+    }
+
+
 
     public void LoadFirstLevel()
     {
